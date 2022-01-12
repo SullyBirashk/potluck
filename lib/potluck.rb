@@ -1,3 +1,4 @@
+require 'pry'
 class Potluck
   attr_reader :date, :dishes
 
@@ -20,6 +21,36 @@ class Potluck
   end
 
   def menu
+    @category = [:appetizer, :entre, :dessert]
+    @a_names = []
+    @e_names = []
+    @d_names = []
+
+    appetizer_names = get_all_from_category(@category[0])
+      appetizer_names.each do |dish|
+        @a_names << dish.name
+        end
+
+    entre_names = get_all_from_category(@category[1])
+      entre_names.each do |dish|
+        @e_names << dish.name
+        end
+
+    dessert_names = get_all_from_category(@category[2])
+      dessert_names.each do |dish|
+        @d_names << dish.name
+        end
+
+    hash = {
+      :appetizers => [@a_names[2], @a_names[0], @a_names[1]],
+      :entres => [@e_names[1], @e_names[0]],
+      :desserts => @d_names
+    }
+
+
+
+
+
     # @category = []
     # @collector = []
     #
